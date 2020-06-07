@@ -1,0 +1,36 @@
+<HTML>
+	<HEAD><TITLE>FORMS</TITLE>
+<!-- The code allows to access the Form objects Elements Array //-->
+	<SCRIPT Language="JavaScript">
+		function Ver(form1) {
+			v = form1.elements.length;
+			if (form1.elements[3].name == "Button1") {
+				alert('First form name : ' + document.forms[0].name);
+				alert('No. of Form elements of  ' + document.forms[0].name + ' = ' + v);
+			}
+			else if (form1.elements[4].name == "Button2") {
+				alert('Second form name : ' + document.forms[1].name);
+				alert('No. of Form elements of  ' + document.forms[1].name +  ' = ' + v);
+			}
+			for(i=0; i < v; i++)
+				alert(form1.elements[i].name + ' is at position ' + i);
+		}
+	</SCRIPT></HEAD>
+	<BODY>
+		<FORM Name="Survey Form 1">
+			FIRST FORM: <I><B>Survey Form 1 </B></I><BR/><BR/>
+			First Name : <INPUT Name="Text1" Type="Text" Value=""><BR/><BR/>
+			<INPUT Name="Radio1" Type="Radio" Value="" /> Fresher
+			<INPUT Name="Radio2" Type="Radio" Value="" /> Experienced<BR/><BR/>
+			<INPUT Name="Button1" onClick="Ver(form)" Type="Button" Value="Click1" />
+		</FORM>
+		<FORM Name="Survey Form 2">
+			SECOND FORM: <I><B> Survey Form 2 </B></I><BR/><BR/>
+			Name : <INPUT Name="Text2" Type="Text" Value="" /> <BR/><BR/>
+			Password : <INPUT Name="Pass2" Type="Password" Value="" /> <BR/><BR/>
+			<INPUT Name="Check1" Type="CheckBox" Value="" /> Employed 
+			<INPUT Name="Check2" Type="CheckBox" Value="" /> Studying <BR/><BR/>
+			<INPUT Name="Button2" onClick="Ver(form)" Type="Button" Value="Click2" />
+		</FORM>
+	</BODY>
+</HTML>

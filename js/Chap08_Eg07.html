@@ -1,0 +1,33 @@
+<HTML>
+	<HEAD>
+		<TITLE> Confirm Method </TITLE>
+		<SCRIPT LANGUAGE="JavaScript">
+			var question = "What is 10+10 ?";
+			var answer = 20;
+			var correct = '<IMG SRC="images/man2.gif"/>';
+
+			var incorrect ='<IMG Src="images/man1.gif"/>';
+			var Response = prompt(question,"0");
+			for(count = 0; count < 3; count++) {
+				if(Response != answer) {
+					confirm("Wrong, Press OK For Another Chance");
+					Response = prompt(question,"0");
+					if(count == 1)
+					{
+						alert("Better Luck Next Time");
+						break;
+					}
+				}
+				
+ 			else {
+					alert("Great!! You Are Right");
+					count = 3;
+				}
+			}
+			var output = (Response == answer) ? correct :  incorrect;
+			document.write("<BR/>");
+			document.write(output);
+		</SCRIPT>
+	</HEAD>
+	<BODY></BODY>
+</HTML>

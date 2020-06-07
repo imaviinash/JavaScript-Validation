@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style>
+table
+{
+color:white;
+border-radius:20px;
+font-family: sans-serif;
+}
+#button
+{
+background:radial-gradient(circle, #009CDE, #003087);
+color:white;
+height:32px;
+width:85px;
+border-radius:25px;
+}
+
+body
+{
+background:radial-gradient(circle, #009CDE, #003087);
+}
+</style>
+<script language="JavaScript">
+function Masking()
+{
+      var Mobile, Fax, Credit;
+
+      Mobile=document.getElementById('Mobile').value;
+      Fax=document.getElementById('Fax').value;
+      Credit=document.getElementById('Credit').value;
+
+
+      if(Mobile.length<10){
+  aler("Atleast 10 Number Required");
+   	return false;
+   }
+   if(Mobile.length>10){
+  aler("Atleast 10 Number Required");
+    return false;
+   }
+
+   if((Mobile.charAt(0)!=9) && (Mobile.charAt(0)!=8) && (Mobile.charAt(0)!=7)){
+    alert("Mobile Number must start with 987")
+    return false;
+   }
+
+   if(Fax.length<3){
+  alert("Atleast 3 Number Required");
+   	return false;
+}
+
+   if(Fax.length>3){
+  alert("Atleast 3 Number Required");
+    return false;
+    }
+
+   if(Credit.length<4){
+   	alert("Atleast 4 Number Required");
+   	return false;
+}
+
+   
+   if(Credit.length>4){
+    alert("Atleast 4 Number Required");
+    return false;
+}
+ 
+   else{
+   	return true;
+   }   	
+
+}
+
+</script>
+
+
+<script defer src="https://unpkg.com/imask"></script>
+
+
+</head>
+<body>
+	 <br><br>
+<h1 align="center" style="color: white;">Form Validation</h1>
+
+<table border="0" bgcolor="#ffac12;" align="center" cellspacing="20">	
+<form action="#" method="post" onsubmit="return Masking()">
+      <tr>
+<td>Mobile Number:</td>
+<td> <input type="Number" name="mob" id='Mobile' pattern=".{10,}"></td>
+	</tr>
+
+	<tr>	
+<td>Fax:</td>
+<td> <input type="Number" name="f_ax" id="Fax" pattern=".{3,}"></td>
+    </tr>
+
+    <tr>
+<td>Credit Card:</td>
+<td> <input type="Number" name="numb1" id="Credit" pattern=".{4,}"></td>
+    </tr>
+
+     <tr>
+<td colspan="2" align="center"> <input type="submit" id="button"></td>
+      </tr>
+</form>
+</table>
+
+
+</body>
+</html>

@@ -1,0 +1,34 @@
+<HTML>
+	<HEAD>
+		<TITLE>CHANGING IMAGES....</TITLE>
+		<SCRIPT Language="JavaScript">
+			if(document.images)	rollover="yes";
+			else 	rollover="no";
+			if(rollover=="yes") {
+				img1on = new Image(); 
+				img1off = new Image();
+				img1on.src="Images/man1.gif";
+				img1off.src="Images/man2.gif";
+			}
+			function imageSwitchOn(imagename) {
+				if(rollover=="yes") {
+					imageOn=eval(imagename + "on.src");
+					document [imagename].src = imageOn;
+				}
+			}
+			function imageSwitchOff(imagename) {
+				if (rollover=="yes") {
+					imageOff=eval(imagename + "off.src");
+					document [imagename].src = imageOff;
+				}
+			}
+		</SCRIPT>
+	</HEAD>
+	<BODY>
+		<H1>IMAGES......</H1><BR>
+		<H3><I>place your mouse pointer on the picture</I></H3>
+		<A onMouseOver="imageSwitchOn('img1')" onMouseOut="imageSwitchOff('img1')">
+			<IMG Alt="space" Height=200 Name="img1" Src="Images/man2.gif" Width="200" /></A> 
+			    
+	</BODY>
+</HTML>

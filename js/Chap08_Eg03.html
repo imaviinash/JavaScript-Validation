@@ -1,0 +1,19 @@
+<HTML>
+	<HEAD>
+		<TITLE>Creating and Using User Defined Functions</TITLE>
+ 
+		<SCRIPT Language="JavaScript">
+			var name = "";
+			function hello() {    
+				name = prompt('Enter Your Name:', 'Name');
+				alert('Greetings ' + name + ', Welcome to my page!');
+			}
+	 		function goodbye() {
+				alert('Goodbye ' + name + ', Sorry to see you go!');
+			}
+		</SCRIPT>
+	</HEAD>
+	<BODY onLoad="hello();" onUnload="goodbye();">
+		<IMG SRC="images/2.png">
+	</BODY>
+</HTML>

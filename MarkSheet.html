@@ -1,0 +1,168 @@
+<html>
+<head>
+<title></title>
+<script language="JavaScript">
+     function marks()
+     {
+     	var a, b, c, d, e, f, g, h, i, j, k;
+     	a=StdMarks.SN.value;
+     	b=StdMarks.RN.value;
+     	c=StdMarks.WT.value;
+     	d=StdMarks.RTS.value;
+     	e=StdMarks.SE.value;
+     	f=StdMarks.CD.value;
+     	g=StdMarks.EC.value;
+    h=parseInt(c)+parseInt(d)+parseInt(e)+parseInt(f)+parseInt(g);
+        i=parseInt(h)/5;
+        
+        if (i>=80)
+        {
+            j="Distinction";
+        }
+        else if (i>=60 && i<80)
+        {
+              j="First Division";
+        }
+
+        else if (i>=40 && i<60)
+       {
+         j="Second Division";
+       }
+        else if (i<40)
+        {
+             j="Fail";
+        }
+
+        StdMarks.btn.value=j;
+
+        if (c < 40 || d < 40 || e<40 || f<40 || g<40)
+       {
+             k="Fail";
+       }
+        else
+        {
+             k="Pass";
+        }
+
+         StdMarks.btn.value=k;
+
+
+
+
+         
+      if (c<40)
+        {
+              c="Fail";
+        }
+        StdMarks.btn.value=c;
+
+          if (d<40)
+         {
+             d="Fail";
+        }
+        StdMarks.btn.value=d;
+
+         if (e<40)
+       {
+             e="Fail";
+        }
+        StdMarks.btn.value=e;
+
+         if (f<40)
+        {
+              f="Fail";
+         }
+         StdMarks.btn.value=f;
+
+          if (g<40)
+         {
+              g="Fail";
+         }
+        StdMarks.btn.value=g; 
+
+
+
+
+
+
+
+
+        document.getElementById("table").innerHTML ="<table border=1 style='text-align=center' align=center><tr><td>Student's Name</td><td>Roll No.</td><td>WT</td><td>RTS</td><td>SE</td><td>CD</td><td>EC</td><td>Tota Marks</td><td>Percentage</td><td>Division</td><td>Remark</td></tr><tr><td>"+a+"</td><td>"+b+"</td><td>"+c+"</td><td>"+d+"</td><td>"+e+"</td><td>"+f+"</td><td>"+g+"</td><td>"+h+"</td><td>"+i+"</td><td>"+j+"</td><td>"+k+"</td></tr></table>";
+
+
+     }
+
+
+
+
+
+
+
+
+// 	function shopping()
+// 	{
+// var amount1, rate, quantity;
+// rate= window.prompt("Enter the rate :");
+// quantity = window.prompt("Enter the quantity :");
+// amount1=rate*quantity;
+// window.alert(amount1);
+// }
+	
+
+// 	function sales()
+// 	{
+// 		var itemcode, itemdetail, rate, quantity, amount1, discount, grandtotal;
+// 		itemcode=item.itemcode.value;
+// 		itemdetail=item.itemdetail.value;
+// 		rate=item.rate.value;
+		
+//         quantity=item.quantity.value;
+// 		amount1=rate*quantity;
+// 		item.amount2.value=amount1;
+	
+
+		
+// }
+</script>
+</head>
+<body style="background:#ffac12;">
+<h1 align="center" style="color: white;">Student Marksheet</h1><br>
+	
+<form name="StdMarks" align=center style="color: white;">
+Student's Name: <input type="text" name="SN"><br><br>
+Roll No.: <input type="text" name="RN" ><br><br>
+Web Technologies: <input type="text" name="WT" ><br><br>
+Real Time System: <input type="text" name="RTS" ><br><br>
+Software Engineering: <input type="text" name="SE" ><br><br>
+Compiler Design: <input type="text" name="CD" ><br><br>
+E-Commerce: <input type="text" name="EC" ><br><br>
+<input type="button" name="btn" value="Result" onclick="marks();">
+<input type="RESET" name="btn">
+<br><br><br><br>
+<div id="table">
+	</div>
+</form>
+
+
+
+
+	<!-- <form name="item">
+itemCode: <input type="text" name="itemcode"><br>
+itemDetails: <input type="text" name="itemdetail" ><br>
+Rate: <input type="text" name="rate" ><br>
+Quantity: <input type="text" name="quantity" ><br>
+Amount: <input type="text" name="amount2" ><br>
+Discount: <input type="text" name="discount" ><br>
+GrandTotal: <input type="text" name="grandtotal" ><br>
+<input type="button" name="btn" value="submit" onclick="shopping()"><br>
+</form>
+
+
+ -->
+
+
+
+
+</body>
+
+</html>

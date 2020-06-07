@@ -1,0 +1,19 @@
+<HTML>
+	<HEAD>
+		<TITLE>FORMS1</TITLE>
+		<!-- Using Reset Button //-->
+		<SCRIPT>
+			function func(f1) {	alert("The Form Elements have been cleared");	}
+		</SCRIPT>
+	</HEAD>
+	<BODY>
+		<FORM onReset="func(this.form)">
+			Client Name : <INPUT Name="Text1" Type="Text" Value="" /><BR/><BR/>
+			Client Address : <INPUT Name="Text2" Type="Text" Value="" /><BR/><BR/>
+			<INPUT Type="Radio" Name="Radio" Value="" />Male
+			<INPUT Type="Radio" Name="Radio" Value="" />Female<BR/><BR/>
+			<INPUT Type="CheckBox" Name="Check" Value="" />Employed<BR/><BR/>
+			<INPUT Name="Rst" Type="Reset" Value="Reset" />
+		</FORM>
+</BODY>
+</HTML>

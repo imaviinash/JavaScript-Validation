@@ -1,0 +1,34 @@
+<HTML>
+	<HEAD><SCRIPT LANGUAGE="JAVASCRIPT">
+		function verifyData() {
+			a=0;	r="";
+			for (i=0; i<=4; i++) {
+				if (document.forms[0].elements[i].value == "") {
+					a=1;
+ 
+					r = r + " " + document.forms[0].elements[i].name + ";" ;
+				}
+				else if ((i > 3)&&(a==0))  {
+					alert("All Textboxes are filled in - Thank You !");
+				}
+			} 		
+			for (i=0; i<=4; i++) {
+				if (document.forms[0].elements[i].value == "") {
+					alert("Please fill in the following Textbox / Textboxes :- " + r);
+					document.forms[0].elements[i].focus( );
+					break;
+				}
+			}
+		}
+	</SCRIPT></HEAD>
+	<BODY><FORM>
+		First Name : <INPUT Name="Firstname" Type="Text" Size="20" />
+		Last Name : <INPUT Name="Lastname" Type="Text" Size="20" />
+		<P>Address : <INPUT Name="Address" Type="Text" Size="60" /></P>
+		<P>Pincode : <INPUT Name="Pincode" Type="Text" Size="6" /></P>
+		<INPUT Name="act" onClick="verifyData( )" Type="button"Value="Verify">
+	</FORM></BODY>
+	<SCRIPT Language="JavaScript">
+		document.forms[0].Firstname.focus( );
+	</SCRIPT>
+</HTML>

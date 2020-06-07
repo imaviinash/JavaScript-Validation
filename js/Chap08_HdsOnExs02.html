@@ -1,0 +1,13 @@
+<HTML>
+	<HEAD><SCRIPT  Language="JavaScript">
+		function checkData(column_data) {
+			if( column_data != "" &&  column_data.value != column_data.value.toUpperCase() ) {
+				column_data.value = column_data.value.toUpperCase()
+			}
+		}
+	</SCRIPT></HEAD>
+	<BODY><FORM><B>Field 1:</B>&nbsp;
+		<INPUT TYPE="text" NAME="collector" SIZE=10 onChange="checkData(this)"><BR>
+		<B>Field 2:</B>&nbsp;<INPUT TYPE="text" NAME="dummy" SIZE=10>
+	  </FORM></BODY>
+</HTML>

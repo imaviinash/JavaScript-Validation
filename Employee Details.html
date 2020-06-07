@@ -1,0 +1,197 @@
+<html>
+<head>
+<title>Employee Details</title>
+<script language="JavaScript">
+          
+          function Employe()
+          {
+         var a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p,gender, martialstatus, SD, EN, SD1, ED1;
+     	a=Employee.emp_code.value;
+     	b=Employee.emp_name.value;
+     	c=Employee.designation.value;
+     	d=Employee.grade.value;
+     	e=Employee.basic_salary.value;
+
+
+     	f=(5/100)*e;
+     	Employee.bonus.value=f;
+            
+     	g = (50/100)*e;
+     	Employee.profit_fund.value=g;
+        
+        h= Number(e)+Number(f)+Number(g);
+     	Employee.grand_total.value=h;
+
+     	i = (1.5/100)*h;
+     	Employee.tds.value=i;
+
+     	j = (h-i);
+     	Employee.net_total.value=j;
+
+        k=Employee.start_date.value;
+     	l=Employee.end_date.value;
+        ED=new Date(l);
+     	SD=new Date(k);
+     	ED1=ED.getFullYear();
+     	SD1=SD.getFullYear();
+        m=ED1-SD1;
+        Employee.worked_years.value=m;
+
+
+     	n=Employee.type.value;
+         if (m <=1)
+       {
+             n= 0;
+       }
+        else (m>1)
+        {
+             n=(50/100)*e;
+        }
+        Employee.profit_fund.value = n;
+        
+
+        if (m <= 5)
+        {
+        	o = "Temporary"
+        }
+        else
+        {
+        	o = "Permanent"
+        }
+
+         Employee.type.value=o;
+
+          }
+
+
+         //  martialstatus=Employee.Status.value;
+         //  gender=Employee.Gender.value;
+
+         // if (gender=Female && martialstatus=Divorced)
+         // {
+         //      p=(5/100)+f;
+         // }
+         //   Employee.Status.value=p;
+         //   Employee.Gender.value=p;
+
+
+
+
+
+
+
+	
+	
+	</script>
+</head>
+<body style="background:#ffac12;">
+<h1 align="center" style="color: white;">Employee Details</h1><br>
+
+
+
+<table align="center">	
+<form name="Employee" align=center style="color: white;">
+	<tr>
+<td>Employee Code:</td>
+<td> <input type="text" name="emp_code"></td>
+	</tr>
+
+	<tr>	
+<td>Employee Name:</td>
+<td> <input type="text" name="emp_name"></td>
+    </tr>
+
+    <tr>
+<td>Designation:</td>
+<td> <input type="text" name="designation" ></td>
+    </tr>
+
+    <tr>
+<td>Grade:</td> 
+<td><input type="text" name="grade" ></td>
+    </tr>
+
+    <tr>
+<td>Basic Salary:</td> 
+<td><input type="text" name="basic_salary" ></td>
+    </tr>
+
+     <tr>
+<td>Martial Status:</td> 
+<td><select name="Status">
+	<option value="" disabled selected>Choose Marital Status</option>
+	<option value="married">Married</option>
+	<option value ="unmarried">Unmarried</option>
+	<option value="divorced">Divorced</option>
+</select>
+    </td>
+    </tr>
+
+
+       <tr>
+<td>Gender:</td> 
+<td><select name="Gender">
+	<option value="" disabled selected>Choose Gender</option>	
+	<option value="Male">Male</option>
+	<option value ="Female">Female</option>
+	<option value="Others">Others</option>
+</select>
+    </td>
+    </tr>
+
+    <tr>
+<td>Bonus: </td>
+<td><input type="text" name="bonus" ></td>
+    </tr>
+
+    <tr>
+<td>Profit Fund:</td>
+<td> <input type="text" name="profit_fund" onfocus="Employe()"></td>
+    </tr>
+
+    <tr>
+<td>Grand Total:</td>
+<td> <input type="text" name="grand_total" ></td>
+    </tr>
+
+    <tr>
+<td>TDS:</td> 
+<td><input type="text" name="tds" ></td>
+    </tr>
+
+    <tr>
+<td>Net Total: </td>
+<td><input type="text" name="net_total" ></td>
+    </tr>
+
+    <tr>
+<td>Start Date: </td>
+<td><input type="date" name="start_date" ></td>
+    </tr>
+
+    <tr>
+<td>End Date:</td>
+<td> <input type="date" name="end_date" ></td>
+    </tr>
+
+    <tr>
+<td>Worked Years: </td>
+<td><input type="text" name="worked_years" onfocus="Employe()"></td>
+    </tr>
+
+    	<tr>	
+<td>Type:</td>
+<td> <input type="text" name="type"></td>
+    </tr>
+
+<tr>
+<td><input type="button" name="btn" value="Result" onclick="Employe();"></td>
+<td><input type="RESET" name="btn"></td>
+</tr>
+</form>
+</table>
+
+
+
+</body>
+</html>

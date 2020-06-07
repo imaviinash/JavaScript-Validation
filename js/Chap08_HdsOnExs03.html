@@ -1,0 +1,51 @@
+<HTML>
+	<HEAD><TITLE>Password Validation</TITLE>
+	<SCRIPT language="JavaScript">
+	<!--
+		var userpassword = new Array(4);
+		userpassword[0]= "Allwyn";
+		userpassword[1]= "allwyn";
+		userpassword[2]= "Rohan";
+		userpassword[3]= "rohan";
+		function checkOut() {	
+			var flag =0;
+			var flag1 =0;
+			var i =0;
+			var j =0;
+			for (x=0; x<document.survey.elements.length; x++) {
+				if (document.survey.elements[x].value == "") {
+					alert("You forgot one of the required fields. Please try again");	
+					return;
+				}
+			}
+			var user= document.survey.elements[0].value;
+			var password = document.survey.elements[1].value;
+		 	while(i<=3) {
+				if(userpassword[i] == user) {	
+					j=i;
+					j++;
+					if(userpassword[j] == password) {	
+						flag=1;
+						break;
+					}
+				}
+				i+=2;
+			}	
+			if(flag == 0) {
+				alert("Please enter a valid user name and password");
+				return;
+			}
+			else {
+				alert("Welcome !!\n" + document.forms[0].Username.value);
+			}
+			return;
+		}		
+	//-->
+	</SCRIPT></HEAD>
+	<BODY><FORM Action="" Method="POST" onSubmit="return checkOut(this.form)" Name="survey" >
+		<INPUT Type="TEXT" Name="Username" Size="15" MaxLength="15" />User Name<BR/>
+		<INPUT Type="PASSWORD" Name="Pasword" size="15" />Password<BR/>
+		<INPUT Type="SUBMIT" Value="Submit" />
+		<INPUT Type="RESET" Value="Start Over" />
+	</FORM></BODY>
+</HTML>

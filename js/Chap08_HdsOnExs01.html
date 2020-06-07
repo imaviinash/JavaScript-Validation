@@ -1,0 +1,35 @@
+<HTML>
+	<HEAD><TITLE> Date validations </TITLE><SCRIPT>
+		var monthNames = new Array(12);
+		monthNames[0]= "January";
+		monthNames[1]= "February";
+		monthNames[2]= "March";
+		monthNames[3]= "April";
+		monthNames[4]= "May";
+		monthNames[5]= "June";
+		monthNames[6]= "July";
+		monthNames[7]= "August";
+		monthNames[8]= "September";
+		monthNames[9]= "October";
+		monthNames[10]= "November";
+		monthNames[11]= "December";
+		var dayNames = new Array(7) ;
+		dayNames[0]= "Sunday";
+		dayNames[1]= "Monday";
+		dayNames[2]= "Tuesday";
+		dayNames[3]= "Wednesday";
+		dayNames[4]= "Thursday";
+		dayNames[5]= "Friday";
+		dayNames[6]= "Saturday";
+		function customDateString (m_date) {
+			var daywords = dayNames[m_date.getDay()];
+			var theday = m_date.getDate();
+			var themonth = monthNames[m_date.getMonth()];
+			var theyear = m_date.getYear();
+			return daywords + ",  " + themonth + " " + theday + ", " + theyear;
+		}
+	</SCRIPT></HEAD>
+	<BODY><H1>WELCOME!</H1>
+		<SCRIPT>document.write(customDateString( new Date()))</SCRIPT>
+	</BODY>
+</HTML>

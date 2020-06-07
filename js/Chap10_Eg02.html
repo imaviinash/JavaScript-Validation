@@ -1,0 +1,27 @@
+<HTML>
+	<HEAD>
+		<TITLE>FORMS</TITLE>
+		<!-- The code allows to access the Form objects Elements Array //-->
+		<SCRIPT Language='JavaScript'>
+			function Chk(f1) {
+				f1.Check.checked=true;
+				alert("The Checkbox just got checked");
+				f1.Check.checked=false;
+				f1.Radio[0].checked=true;
+				f1.Radio[1].checked=false;
+				alert("The Radio button just got checked");
+			}
+		</SCRIPT>
+	</HEAD>
+	<BODY>
+		<FORM>
+			Client Name : <INPUT Name="Text" Type="Text" Value="" /><BR/><BR/>
+			Client Address : <INPUT Name="Text1" Type="Text" Value="" /> <BR/><BR/>
+			Client E-mail Address : <INPUT Name="Text2" Type="Text" Value="" /><BR/><BR/>
+			<INPUT Name="Radio" Type="radio" Value="" unchecked /> Male
+			<INPUT Name="Radio" Type="radio" Value="" /> Female<BR/><BR/>
+			<INPUT Name="Check" Type="CheckBox" Value="" /> Employed <BR/><BR/>
+			<INPUT Name="Bt" onClick="Chk(this.form)" Type="Button" Value="Set Element Array Value" />
+		</FORM>
+	</BODY>
+</HTML>

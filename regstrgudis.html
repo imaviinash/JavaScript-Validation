@@ -1,0 +1,232 @@
+<HTML>
+	<HEAD><TITLE>SCT'S GOODIES SIGN UP FORM</TITLE>
+	<SCRIPT Language="JavaScript">
+	<!-- Declaration of Variables  -->
+		var valueofpass1="";
+		var valueofpass2="";
+		var whitespace = " \t\n\r";
+ 
+	<!-- Function to check whether the value in a Text Field is Null -->
+		function isEmpty(s) {
+			return ((s == null) || (s.length == 0))
+		}
+	<!-- Function to check whether the value in a Text Field is a WhiteSpace -->
+		function isWhitespace (s) {
+			var i;
+		<!-- Is  empty?  -->
+			 if (isEmpty(s)) return true;
+		<!-- Search through string's' characters one by one until we find a non-whitespace character. -->
+			for (i=0; i < s.length; i++) {
+			<!-- Check that current character isn't' whitespace.-->
+				var currchar = s.charAt(i);
+				if (whitespace.indexOf(currchar) == -1)
+					return false;
+				}
+		<!-- All characters are whitespace. -->
+			 return true;
+		}
+	<!-- Function to ensure that the email address is in proper format. -->
+		function isEmail (eadd) {
+			if (isEmpty(eadd))
+           <!-- Is s whitespace?  -->
+				if (isWhitespace(eadd)) return false;
+				<!-- There must be >= 1 character before @, so we start looking at character position 1 (i.e. second character) -->
+					var i = 1;
+					 var sLength = eadd.length;
+ 				<!-- look for @ -->
+					while ((i < sLength) && (eadd.charAt(i) != "@")) { 
+						i++;
+					}
+					if ((i >= sLength) || (eadd.charAt(i) != "@"))
+						return false;
+					else
+						i += 2;
+ 				<!-- look for period -->
+					while ((i < sLength) && (eadd.charAt(i) != ".")) { 
+						i++;
+					}
+           <!--There must be at least one character after the period-->
+					if ((i >= sLength - 1) || (eadd.charAt(i) != "."))
+						return false;
+					else
+						return true;
+					}
+ 
+	<!-- Function to check whether the value in Password contains Alphabets and Characters-->
+		function isCharsInBag (string, bag) {  
+			var i;
+		<!-- Search through string 's' characters one by one. If character is in bag, append to returnString. -->
+			for (i=0; i < string.length; i++) {   
+				var charval = string.charAt(i);
+				if (bag.indexOf(charval) == -1)	return false;
+			}
+			return true;
+		}
+	<!-- Function to check whether the Password contains atleast one number -->
+		function isNumberInPass (string, bag) {  
+			var i, flag;
+			flag=0;
+		<!-- Search through string's' characters one by one. If character is in bag, append to return String. -->
+			for (i=0; i < string.length; i++) {   
+				var charval = string.charAt(i);
+				if (bag.indexOf(charval) == -1) {
+					continue;
+				}
+				else {
+					flag=1;
+					break;
+				}
+			}
+			if(flag == 1) {	return true;	}
+			else {	return false;	}
+			return false;
+  		}
+	<!-- Function to check the values entered in all the elements of the formCalled on the clicked event of the Submit button -->
+		function verify() {
+			var flag =0;
+			<!-- Begining the check for Email address, Password and Confirm Password -->
+				var loginName = document.forms[0].elements[0].value;
+				var email = document.forms[0].elements[1].value;
+				var passwd = document.forms[0].elements[2].value;
+				var confPasswd = document.forms[0].elements[3].value;
+				
+				<!-- Check to see if the Login name field is left blank -->
+				if (loginName == "") {
+					alert("Please fill in the login name");
+					document.forms[0].elements[0].focus( );
+					return false;
+				}
+
+				<!-- Check to see if the Email Address field is left blank -->
+				else if (email == "") {
+					alert("Please fill in the email address");
+					document.forms[0].elements[1].focus( );
+					return false;
+				}
+
+				<!-- Check to see if the Email Address filled is valid or not-->
+				else if (!isEmail(email)) {
+					alert("Please enter the Email address in the proper Format");
+					document.forms[0].elements[1].focus( );
+					return false;
+				}
+				
+				<!-- Check to see if the password field is left blank -->
+				else if ( passwd == "" ) {
+					alert("Please fill in the Password");
+					document.forms[0].elements[2].focus( );
+					return false;
+				}
+
+				<!-- Check to see if the length of the password entered is less than 5 -->
+				else if ( passwd.length < 5 ) {
+					alert( "Password must be 5 or more characters." );
+					document.forms[0].elements[2].focus( );
+					return false;
+				}
+
+				<!-- Check to see if the length of the password entered is more than 8 -->
+				else if (passwd.length > 8 ) {
+					alert( "Password must be 8 or less characters." );
+					document.forms[0].elements[2].focus( );
+					return false;
+				}
+				
+				<!-- Check to see if the password field is contain other than alphabate or number -->
+				else if (!isCharsInBag(passwd, "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789")) {
+					alert( "Password must only contain alphabets and number");
+					document.forms[0].elements[2].focus( );
+					return false;
+				}		
+				
+				<!-- Check to see if the length of the password entered should have atleast one numeric character -->
+				else if ( !isNumberInPass( passwd, "0123456789")) {
+					alert( "Password must have atleast one number.");
+					document.forms[0].elements[2].focus( );
+					return false;
+				}
+				<!-- Check to see if the Confirm password is entered or not -->
+				else if ( confPasswd == "" ) {
+					alert("Please fill in the Confirm Password");
+					document.forms[0].elements[3].focus( );
+					return false;
+				}
+	 			
+				<!-- Check to see if the password and Confirm password is not match or not  -->
+				else if (document.forms[0].elements[2].value != document.forms[0].elements[3].value) {
+					alert( "Your passwords do not match. Please retype and try again.");
+					return false;
+				}
+						
+				<!-- Check to see if atleast one is checkbox checked or not-->
+				for (j=4; j<=5; j++) {
+					if(document.forms[0].elements[j].checked) {
+						break;
+				}
+ 
+				else if (j>=5) {	
+					alert("Atleast Check on One of Our Services");
+					document.forms[0].elements[j].focus();
+					return (false);
+				}
+			}	
+			return(true);
+		}
+	<!-- Function called on the Clicked event of the Abort button --> 
+		function Abort() {
+			history.back();
+		}
+	</SCRIPT></HEAD>
+	<BODY">
+		<IMG Src="images/RegGoodies.gif" />
+		<FORM Action="" Method="post" onSubmit="return verify()">
+			<TABLE Align="center" Border="0" CellPadding="0" CellSpacing="0" Size="800">
+			<TBODY><TR>
+				<TD Align="right"><B>Login Name:</B></TD>
+				<TD><INPUT Name="LoginName" /></TD>
+			</TR><TR>
+				<TD Align="right"><B>E-Mail Address:</B></TD>
+				<TD><INPUT Name="Email:" /></TD>
+			</TR><TR>
+				<TD Align="right"><B>Password:</B></TD>
+				<TD><INPUT Name="Passwd1" Type="password" /></TD>
+			</TR><TR>
+				<TD Align="right"><B>Confirm Password:</B></TD>
+				<TD><INPUT Name="Passwd2" Type="password" /></TD>
+			</TR></TBODY></TABLE>
+			<P><TABLE Align="center" Border="0" CellPadding="0" CellSpacing="0" Size="800" Style="color:red;font-family:verdana;font-size:10px;">
+			<TBODY><TR><TD>
+				<B>PASSWORD RULES:</B></FONT>
+			</TD></TR><TR><TD>
+				A Password's minimum length is five characters
+			</TD></TR><TR><TD>
+				A Password's maximum length is eight characters
+			</TD></TR><TR> <TD>
+				A Password should have at least one digit included
+			</TD></TR><TR> <TD>
+				Other than Alphabets and Digits no other values are allowed
+			</TD></TR></TBODY></TABLE>
+			<P>
+			<IMG Height="40" Src="images\Shim.gif" Width="1" />
+				<IMG Src="images/SeleGoodies.gif" />
+			<IMG Height="30" Src="images\Shim.gif" Width="1" />
+			</P>
+			<TABLE Align="center" Border="0" CellPadding="0" CellSpacing="0" Size="800">
+			<TBODY><TR>
+				<TD><IMG Height=5 Src="images/Shim.gif" width="10" /></TD>
+				<TD><B>Pen Pals</B><IMG Height="1" Src="images/Shim.gif" Width="3" />
+					<INPUT type="checkbox" Name="PenPals" value="y" /></TD>
+				<TD><IMG Height=5 Src="images/Shim.gif" width="10" /></TD>
+				<TD><B>News Letter</B><IMG Height="1" Src="images/Shim.gif" Width="3" />
+					<INPUT type="checkbox" Name="NewsLtr" value="y" /></TD>
+				<TD><IMG Height="5" Src="images/Shim.gif" Width="10" /></TD>
+			</TR></TBODY></TABLE>
+			<IMG Height="30" Src="images/Shim.gif" Width="1" />
+			<P>
+				<INPUT Type="submit" Value="Submit" />
+				<INPUT Type="reset" Value="Reset" />
+				<INPUT onClick="Abort()" Type="button" Value="Abort" />
+			</P>
+		</FORM>
+	</BODY>
+</HTML>

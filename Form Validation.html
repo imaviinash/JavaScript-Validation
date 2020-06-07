@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JavaScript Validation</title>
+<style>
+table
+{
+color:white;
+border-radius:20px;
+font-family: sans-serif;
+}
+#button
+{
+background:radial-gradient(circle, #009CDE, #003087);
+color:white;
+height:32px;
+width:85px;
+border-radius:25px;
+}
+
+body
+{
+background:radial-gradient(circle, #009CDE, #003087);
+}
+</style>
+
+
+
+	<script language="JavaScript">
+function validation()
+{
+      var username, email, password, confirm_password;
+
+      username=document.getElementById('username').value;
+      email=document.getElementById('email').value;
+      password=document.getElementById('password').value;
+      confirm_password=document.getElementById('confirm_password').value;
+
+   if(username=="" || email=="" || password=="" || confirm_password=="")
+   {
+
+    alert("All Field Required");
+   	return false;
+   }
+   else if(username.length<4){
+  alert("Atleast 4 characters Required");
+   	return false;
+   }
+   else if(password.length<4){
+  alert("Atleast 4 characters Required");
+   	return false;
+}
+
+  else if(confirm_password.length<4){
+   	alert("Atleast 4 characters Required");
+   	return false;
+}
+   else{
+   	return true;
+   }   	
+
+}
+
+</script>
+ 
+</head>
+<body>
+  <br><br>
+<h1 align="center" style="color: white;">Form Validation</h1>
+
+<table border="0" bgcolor="#ffac12;" align="center" cellspacing="20">	
+<form action="#" method="post" onsubmit="return validation()">
+      <tr>
+<td>Username:</td>
+<td> <input type="text" name="user_name" id='username'></td>
+	</tr>
+
+	<tr>	
+<td>Email:</td>
+<td> <input type="email" name="e_mail" id="email"></td>
+    </tr>
+
+    <tr>
+<td>Password:</td>
+<td> <input type="password" name="pswd" id="password"></td>
+    </tr>
+
+    <tr>
+<td>Confirm Password:</td> 
+<td><input type="password" name="confirm_pswd" id="confirm_password"> </td>  
+     </tr>
+
+     <tr>
+<td colspan="2" align="center"> <input type="submit" id="button"></td>
+      </tr>
+</form>
+</table>
+
+<!-- <div id = "result" text:danger;></div> -->
+</body>
+</html>
